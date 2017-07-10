@@ -180,21 +180,6 @@ SteamTradeOffers.prototype.getTradeHistory = function(options, callback) {
             if (error) {
                 return callback(error);
             }
-
-            if (res.response.trade_offers_received !== undefined) {
-                res.response.trade_offers_received = res.response.trade_offers_received.map(function(offer) {
-                    offer.steamid_other = toSteamId(offer.accountid_other);
-                    return offer;
-                });
-            }
-
-            if (res.response.trade_offers_sent !== undefined) {
-                res.response.trade_offers_sent = res.response.trade_offers_sent.map(function(offer) {
-                    offer.steamid_other = toSteamId(offer.accountid_other);
-                    return offer;
-                });
-            }
-
             callback(null, res);
         }
     });
