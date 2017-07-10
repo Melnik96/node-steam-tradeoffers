@@ -101,6 +101,9 @@ SteamTradeOffers.prototype.loadMyInventory = function(options, callback) {
   if (options.tradableOnly !== false) {
     query.trading = 1;
   }
+  if (options.start) {
+      query.start = options.start;
+  }
 
   var uri = communityURL + '/my/inventory/json/' + options.appId +
     '/' + options.contextId + '/?' + querystring.stringify(query);
