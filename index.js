@@ -389,14 +389,14 @@ SteamTradeOffers.prototype.getTradeHoldDurationsNew = function(options, callback
             if (error) {
                 return callback(error);
             }
-            if (res && res.hasOwnProperty('my_escrow')) {
+            if (res.response && res.response.hasOwnProperty('my_escrow')) {
                 return callback(null, {
-                    my_escrow : res.my_escrow.escrow_end_duration_seconds,
-                    their_escrow : res.their_escrow.escrow_end_duration_seconds,
-                    both_escrow : res.both_escrow.escrow_end_duration_seconds,
+                    my_escrow : res.response.my_escrow.escrow_end_duration_seconds,
+                    their_escrow : res.response.their_escrow.escrow_end_duration_seconds,
+                    both_escrow : res.response.both_escrow.escrow_end_duration_seconds,
                 });
             }
-            return callback(false);
+            return callback('invalid response from steam API');
         }
     });
 };
