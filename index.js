@@ -381,6 +381,19 @@ SteamTradeOffers.prototype.getItems = function(options, callback) {
   });
 };
 
+SteamTradeOffers.prototype.getTradeHoldDurationsNew = function(options, callback) {
+    doAPICall.bind(this)({
+        method: 'GetTradeHoldDurations/v1',
+        params: options,
+        callback: function(error, res) {
+            if (error) {
+                return callback(error);
+            }
+            callback(null, res);
+        }
+    });
+};
+
 function setCookie(cookie) {
   this._j.setCookie(request.cookie(cookie), communityURL);
 }
