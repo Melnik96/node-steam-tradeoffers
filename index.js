@@ -396,7 +396,7 @@ SteamTradeOffers.prototype.getTradeHoldDurationsNew = function(options, callback
                     both_escrow : res.response.both_escrow.escrow_end_duration_seconds,
                 });
             }
-            return callback('invalid response from steam API');
+            return callback('invalid trade token');
         }
     });
 };
