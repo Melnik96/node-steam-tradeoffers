@@ -389,6 +389,9 @@ SteamTradeOffers.prototype.getTradeHoldDurationsNew = function(options, callback
             if (error) {
                 return callback(error);
             }
+            if (!res || !res.hasOwnProperty('response')) {
+                return callback('invalid response from steam');
+            }
             if (res.response && res.response.hasOwnProperty('my_escrow')) {
                 return callback(null, {
                     my_escrow : res.response.my_escrow.escrow_end_duration_seconds,
