@@ -492,7 +492,7 @@ function loadInventory(options, callback) {
     if (response && response.statusCode !== 200) {
       return callback(new Error(response.statusCode));
     }
-    if (body.hasOwnProperty('success')) {
+    if (body.hasOwnProperty('success') && !body.success) {
         return callback(null, [], []);
     }
     if (!body || !body.rgInventory || !body.rgDescriptions || !body.rgCurrency) {
