@@ -37,6 +37,12 @@ SteamTradeOffers.prototype.setup = function(options) {
   }.bind(this));
 };
 
+SteamTradeOffers.prototype.requestCommunity = function(url, callback) {
+    this._requestCommunity.get({
+        uri: url
+    }, callback);
+};
+
 SteamTradeOffers.prototype.getOfferToken = function(callback) {
   this.getOfferUrl(function(error, offerUrl) {
     if (error) {
